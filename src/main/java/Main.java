@@ -16,7 +16,7 @@ public class Main {
         phoneBook.add("Кузнецов", String.valueOf(452727277));
         phoneBook.add("Емельянов", String.valueOf(375291565));
         phoneBook.seach("Петров");
-
+        phoneBook.seach("Иванов");
     }
 
     public static void firstTask(){
