@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Main {
 
 
     public static void main(String[] args) {
-       firstTask();
+        firstTask();
 
-        PhoneBook phoneBook =new PhoneBook();
+        PhoneBook phoneBook = new PhoneBook();
         phoneBook.add("Петров", String.valueOf(375291565));
-        phoneBook.add("Петров", String.valueOf(545341355)) ;
+        phoneBook.add("Петров", String.valueOf(545341355));
         phoneBook.add("Иванов", String.valueOf(722752725));
         phoneBook.add("Сидоров", String.valueOf(452452455));
         phoneBook.add("Кузнецов", String.valueOf(452727277));
@@ -19,7 +21,7 @@ public class Main {
         phoneBook.seach("Иванов");
     }
 
-    public static void firstTask(){
+    public static void firstTask() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Рыба");
         list.add("Мясо");
@@ -50,9 +52,30 @@ public class Main {
         System.out.println("Мясо " + count + " раз(а)");
         count = Collections.frequency(list, "Курица");
         System.out.println("Курица " + count + " раз(а)");
-    }
+        System.out.println();
 
+
+        HashMap<String, Integer> mp = new HashMap();
+        ArrayList<String> newList = new ArrayList<>();
+        for (String element : list) {
+            if (!list.contains(element))
+                newList.add(element);
+            if (!mp.containsKey(element)) {
+                mp.put(element, 1);
+            } else {
+                int count1 = mp.get(element);
+                mp.put(element, count1 + 1);
+
+            }
+        }
+        for (Map.Entry<String, Integer> entry : mp.entrySet()) {
+            System.out.println(entry.getKey() + "  " + entry.getValue() + " раз(а)");
+        }
+    }
 }
+
+
+
 
 
 
